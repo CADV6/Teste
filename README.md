@@ -1,1 +1,150 @@
-# Teste
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parabéns Dona Lola</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      font-family: 'Segoe UI', 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      color: white;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .container {
+      position: relative;
+      z-index: 2;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 30px;
+    }
+
+    h1 {
+      font-size: 3.5em;
+      margin: 20px 0;
+      color: #fff;
+      text-shadow: 0 0 10px #ff00c8, 0 0 20px #ff00c8, 0 0 30px #ff99cc;
+      animation: neonGlow 1.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes neonGlow {
+      from {
+        text-shadow: 0 0 5px #ff69b4;
+      }
+      to {
+        text-shadow: 0 0 20px #ff69b4, 0 0 30px #ff1493, 0 0 40px #ff69b4;
+      }
+    }
+
+    p {
+      font-size: 2em;
+      color: #ffffff;
+      text-shadow: 0 0 5px #fff;
+      animation: fadeIn 3s ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .emojis {
+      font-size: 2.5em;
+      margin: 20px 0;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0px); }
+    }
+
+    /* Confetes animados */
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: #ff69b4;
+      border-radius: 50%;
+      opacity: 0.7;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-10vh) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* Música oculta */
+    audio {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      z-index: 10;
+      opacity: 0.7;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.2em;
+      }
+      p {
+        font-size: 1.5em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Música de fundo -->
+  <audio autoplay loop controls>
+    <source src="https://www.bensound.com/bensound-music/bensound-sunny.mp3" type="audio/mpeg">
+    Seu navegador não suporta áudio HTML5.
+  </audio>
+
+  <!-- Confetes -->
+  <script>
+    const colors = ['#ff69b4', '#ffb6c1', '#ffd700', '#87ceeb', '#add8e6', '#ffffff', '#ffa07a'];
+    for (let i = 0; i < 120; i++) {
+      const confetti = document.createElement('div');
+      confetti.classList.add('confetti');
+      confetti.style.left = `${Math.random() * 100}vw`;
+      confetti.style.animationDuration = `${2 + Math.random() * 3}s`;
+      confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+      confetti.style.width = `${6 + Math.random() * 8}px`;
+      confetti.style.height = confetti.style.width;
+      confetti.style.animationDelay = `${Math.random() * 5}s`;
+      document.body.appendChild(confetti);
+    }
+  </script>
+
+  <div class="container">
+    <div class="emojis">🎈🎉🌟🎂💖</div>
+    <h1>Parabéns dona Lola</h1>
+    <p>Te amamos do fundo do coração 💕</p>
+    <div class="emojis">🎁✨🎀🎊🎈</div>
+  </div>
+</body>
+</html>
